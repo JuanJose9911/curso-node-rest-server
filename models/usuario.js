@@ -35,7 +35,8 @@ const UsuarioSchema = Schema({
 //En los modelos se pueden crear metodos 
 
 UsuarioSchema.methods.toJSON = function() {
-    const { __v, password, ...ususario} = this.toObject();
+    const { __v, password, _id, ...ususario} = this.toObject();
+    ususario.uid = _id;
     return ususario
 }
 
